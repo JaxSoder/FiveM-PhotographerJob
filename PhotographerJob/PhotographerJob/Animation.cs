@@ -16,7 +16,6 @@ namespace AnimationScripts
         public void StopAnimating()
         {
             Game.PlayerPed.Task.ClearAll();
-            Consoel
         }
 
 
