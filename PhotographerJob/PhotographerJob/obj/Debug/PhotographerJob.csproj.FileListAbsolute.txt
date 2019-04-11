@@ -1,1 +1,11 @@
 F:\-----Programming----\C# Visual Studio\FiveMC#\PhotographerJob-FiveM\PhotographerJob\PhotographerJob\obj\Debug\PhotographerJob.csproj.CoreCompileInputs.cache
+F:\-----Programming----\C# Visual Studio\FiveMC#\PhotographerJob-FiveM\PhotographerJob\PhotographerJob\bin\Debug\PhotographerJob.net.dll
+F:\-----Programming----\C# Visual Studio\FiveMC#\PhotographerJob-FiveM\PhotographerJob\PhotographerJob\bin\Debug\PhotographerJob.net.pdb
+F:\-----Programming----\C# Visual Studio\FiveMC#\PhotographerJob-FiveM\PhotographerJob\PhotographerJob\bin\Debug\CitizenFX.Core.dll
+F:\-----Programming----\C# Visual Studio\FiveMC#\PhotographerJob-FiveM\PhotographerJob\PhotographerJob\bin\Debug\MsgPack.dll
+F:\-----Programming----\C# Visual Studio\FiveMC#\PhotographerJob-FiveM\PhotographerJob\PhotographerJob\bin\Debug\CitizenFX.Core.pdb
+F:\-----Programming----\C# Visual Studio\FiveMC#\PhotographerJob-FiveM\PhotographerJob\PhotographerJob\bin\Debug\CitizenFX.Core.xml
+F:\-----Programming----\C# Visual Studio\FiveMC#\PhotographerJob-FiveM\PhotographerJob\PhotographerJob\bin\Debug\MsgPack.xml
+F:\-----Programming----\C# Visual Studio\FiveMC#\PhotographerJob-FiveM\PhotographerJob\PhotographerJob\obj\Debug\PhotographerJob.csproj.CopyComplete
+F:\-----Programming----\C# Visual Studio\FiveMC#\PhotographerJob-FiveM\PhotographerJob\PhotographerJob\obj\Debug\PhotographerJob.net.dll
+F:\-----Programming----\C# Visual Studio\FiveMC#\PhotographerJob-FiveM\PhotographerJob\PhotographerJob\obj\Debug\PhotographerJob.net.pdb
