@@ -139,15 +139,21 @@ namespace PhotographerJob
         }
         public async void RunJob()
         {
-            while (Main.IsJobDone == false)
+            SetNewWaypoint();
+            while (!Main.IsJobDone)
             {
-                SetNewWaypoint();
-                CheckJobInput();
-                DrawJobMarkerIfNearby();
-                DrawJobTextIfNecessary();
-                await Delay(5);
+                if (distance_to_end <= 30)
+                {
+                    CheckJobInput();
+                    DrawJobMarkerIfNearby();
+                    DrawJobTextIfNecessary();
+                    await Delay(5);
+                }
+                else
+                {
+                    await Delay(3000);
+                }
             }
-
         }
 
         private void CheckJobInput()
