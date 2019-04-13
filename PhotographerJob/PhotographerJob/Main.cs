@@ -15,11 +15,12 @@ namespace PhotographerJob
 {
     public class Main : BaseScript
     {
-        private static readonly Vector3 start_marker_pos = new Vector3(-601.523f, -929.926f, 22.8646f);
-        private static readonly Vector3 start_marker_dir = new Vector3(0, 0, 0);
-        private static readonly Vector3 start_marker_rot = new Vector3(0, 0, 0);
+        private static readonly Vector3 start_marker_pos   = new Vector3(-601.523f, -929.926f, 22.8646f);
+        private static readonly Vector3 start_marker_dir   = new Vector3(0, 0, 0);
+        private static readonly Vector3 start_marker_rot   = new Vector3(0, 0, 0);
         private static readonly Vector3 start_marker_scale = new Vector3(2f, 2f, 1f);
-        private static readonly Vector3 start_mainpoint = new Vector3(-601.523f, -929.926f, 22.8646f);
+        private static readonly Vector3 start_mainpoint    = new Vector3(-601.523f, -929.926f, 22.8646f);
+
         private static Color start_marker_color = Color.FromArgb(150, 150, 255, 0);
 
         public static bool IsJobDone = false;
@@ -34,8 +35,16 @@ namespace PhotographerJob
         
         private List<Job> jobsList = new List<Job>()
         {
-            new Job("FirstMission",  1000, new Vector3(-607.009f, -936.583f, 22.8607f)),
-            new Job("SecondMission", 1000, new Vector3(-602.106f, -949.168f, 21.2025f))
+            new Job("FirstMission",    1000, new Vector3(-607.009f, -936.583f,  22.8607f)),
+            new Job("SecondMission",   1000, new Vector3(-602.106f, -949.168f,  21.2025f)),
+            new Job("Legion_1",        1000, new Vector3( 116.961f, -1023.16f,  28.3172f)),
+            new Job("Legion_2",        1000, new Vector3( 208.448f, -1019.52f,  28.3081f)),
+
+            new Job("PoliceStation_1", 1000, new Vector3( 423.578f, -983.251f,  29.7105f))
+
+            //new Job("", 1000, new Vector3(f, f, f))
+
+
         };
 
         public Main()
@@ -103,6 +112,8 @@ namespace PhotographerJob
 
         private void StartJob()
         {
+            Screen.ShowNotification("Job Started");
+            
             IsCurrentlyWorking = true;
             IsJobDone = false;
             job_idx = rand.Next(jobsList.Count);
@@ -142,24 +153,24 @@ namespace PhotographerJob
             SetNewWaypoint();
             while (!Main.IsJobDone)
             {
-                if (distance_to_end <= 30)
+                distance_to_end = Vector3.Distance(Game.PlayerPed.Position, end_point);
+
+                if (distance_to_end >= 50)
+                {
+                    await Delay(3000);
+                }
+                else
                 {
                     CheckJobInput();
                     DrawJobMarkerIfNearby();
                     DrawJobTextIfNecessary();
                     await Delay(5);
                 }
-                else
-                {
-                    await Delay(3000);
-                }
             }
         }
 
         private void CheckJobInput()
         {
-            distance_to_end = Vector3.Distance(Game.PlayerPed.Position, end_point);
-
             if (distance_to_end <= 2 && API.IsControlJustPressed(1, 18))
             {
                 PhotoAnimation.RunningFullAnimation = true;
@@ -185,6 +196,10 @@ namespace PhotographerJob
 
         public static void EndJobSuccessfully()
         {
+            Screen.ShowNotification("Job Ended");
+
+            ClearGpsPlayerWaypoint();
+
             Debug.WriteLine("500$ Added");
             Main.IsJobDone = true;
             Main.IsCurrentlyWorking = false;
@@ -192,6 +207,10 @@ namespace PhotographerJob
 
         public static void EndJobFailed()
         {
+            Screen.ShowNotification("Job Ended");
+
+            ClearGpsPlayerWaypoint();
+
             Main.IsJobDone = true;
             Main.IsCurrentlyWorking = false;
         }
