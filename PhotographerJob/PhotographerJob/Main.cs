@@ -30,7 +30,6 @@ namespace PhotographerJob
 
         private float DistanceToMarker;
 
-
         private int job_idx = 0;
         
         private List<Job> jobsList = new List<Job>()
@@ -43,7 +42,6 @@ namespace PhotographerJob
             new Job("PoliceStation_1", 1000, new Vector3( 423.578f, -983.251f,  29.7105f))
 
             //new Job("", 1000, new Vector3(f, f, f))
-
 
         };
 
@@ -131,7 +129,7 @@ namespace PhotographerJob
 
         private static Vector3 marker_dir = new Vector3(0, 0, 0);
         private static Vector3 marker_rot = new Vector3(0, 0, 0);
-        private static Vector3 marker_scale = new Vector3(4f, 4f, 4f);
+        private static Vector3 marker_scale = new Vector3(3f, 3f, 2f);
         private static Color marker_color = Color.FromArgb(150, 255, 255, 0);
 
 
@@ -180,7 +178,7 @@ namespace PhotographerJob
 
         private void DrawJobMarkerIfNearby()
         {
-            if (distance_to_end <= 30)
+            if (distance_to_end <= 50)
             {
                 World.DrawMarker(MarkerType.VerticalCylinder, end_point, Job.marker_dir, Job.marker_rot, Job.marker_scale, Job.marker_color);
             }
@@ -198,7 +196,7 @@ namespace PhotographerJob
         {
             Screen.ShowNotification("Job Ended");
 
-            ClearGpsPlayerWaypoint();
+            API.ClearGpsPlayerWaypoint();
 
             Debug.WriteLine("500$ Added");
             Main.IsJobDone = true;
@@ -209,8 +207,8 @@ namespace PhotographerJob
         {
             Screen.ShowNotification("Job Ended");
 
-            ClearGpsPlayerWaypoint();
-
+            API.ClearGpsPlayerWaypoint();
+            Debug.WriteLine("CLEARED");
             Main.IsJobDone = true;
             Main.IsCurrentlyWorking = false;
         }

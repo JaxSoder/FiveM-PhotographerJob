@@ -65,7 +65,7 @@ namespace PhotoAnimationScripts
 
         public static async void RunFullAnimation()
         {
-            while (RunningFullAnimation == true)
+            while (RunningFullAnimation)
             {
                 Job.EndJobSuccessfully();
 
