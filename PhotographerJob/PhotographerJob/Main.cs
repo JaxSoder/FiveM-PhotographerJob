@@ -199,6 +199,7 @@ namespace PhotographerJob
             API.ClearGpsPlayerWaypoint();
 
             Debug.WriteLine("500$ Added");
+            TriggerEvent("Add_Money_To_Wallet", 200);
             Main.IsJobDone = true;
             Main.IsCurrentlyWorking = false;
         }
